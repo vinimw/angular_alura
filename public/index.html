@@ -12,9 +12,18 @@
     </head>
     <body ng-controller="FotosController">
         <div class="container">
-            <h1 class="text-center">Alurapic</h1>
-            <!-- http://www.fundosanimais.com/Minis/leoes.jpg -->
-            <img class="img-responsive center-block" ng-src="{{foto.src}}" ng-alt="{{foto.titulo}}">
+            <div class="jumbotron">
+                <h1 class="text-center">Alurapic</h1>
+            </div>
+            <div ng-repeat="photo in photos" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{photo.titulo}}</h3>
+                </div>
+                <div class="panel-body">
+                    <img class="img-responsive center-block" ng-src="{{photo.url}}" ng-alt="{{photo.titulo}}">
+                </div>
+            </div>
+            
         </div> <!-- fim container -->        
     </body>
 </html>
