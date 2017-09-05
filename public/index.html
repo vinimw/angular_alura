@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br" ng-app="alurapic">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
-        <title>Alurapic</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <script src="js/lib/angular.min.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/controllers/fotos-controller.js"></script>
-        <script src="js/directives/my-directives.js"></script>
-    </head>
-    <body ng-controller="FotosController">
-        <div class="container">
-            <div class="jumbotron">
-                <h1 class="text-center">Alurapic</h1>
-            </div>
-            <my-panel ng-repeat="photo in photos" title="{{photo.titulo}}" url="{{photo.url}}">
-                <img class="img-responsive center-block" ng-src="{{photo.url}}" ng-alt="{{photo.titulo}}">
-            </my-panel>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Alurapic</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/lib/angular.min.js"></script>
+	<script src="js/lib/angular-animate.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/controllers/fotos-controller.js"></script>
+	<script src="js/directives/my-directives.js"></script>
+</head>
+<body ng-controller="FotosController">
+	<div class="container">
+		<div class="jumbotron">
+			<h1 class="text-center">Alurapic</h1>
+		</div>
 
-           <!--  <div class="panel-heading">
-                    <h3 class="panel-title">{{photo.titulo}}</h3>
-                </div>
-                <div class="panel-body">
-                    <img class="img-responsive center-block" ng-src="{{photo.url}}" ng-alt="{{photo.titulo}}">
-                </div> -->
-            
-        </div> <!-- fim container -->        
-    </body>
+		<div class="row">
+			<div class="col-md-12">
+				<form>
+					<input ng-model="filter" class="form-control" placeholder="aaaa" type="text" ng-model-options="{ debounce: 500 }">
+				</form>
+			</div>    
+		</div>
+
+		<div class="row">
+		<my-panel class="col-md-2 animate-panel" ng-repeat="photo in photos | filter: filter" title="{{photo.titulo}}" url="{{photo.url}}">
+				<img class="img-responsive center-block" ng-src="{{photo.url}}" ng-alt="{{photo.titulo}}">
+			</my-panel>
+		</div>
+	</div> <!-- fim container -->        
+</body>
 </html>
