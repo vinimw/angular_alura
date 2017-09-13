@@ -6,7 +6,7 @@ angular.module('myDirectives', [])
 	ddo.restrict = "AE";
 
 	ddo.scope = {
-		title : "@"
+		title : "@" // if you can use the expression you need to change @ to &
 	};
 
 	ddo.transclude = true;
