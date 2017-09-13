@@ -1,4 +1,4 @@
-angular.module('alurapic', ['myDirectives','ngAnimate','ngRoute'])
+angular.module('alurapic', ['myDirectives','myPhoto','ngAnimate','ngRoute'])
 .config(function($routeProvider, $locationProvider) {
 
 	$locationProvider.html5Mode(true);
@@ -9,6 +9,11 @@ angular.module('alurapic', ['myDirectives','ngAnimate','ngRoute'])
 	});
 
 	$routeProvider.when('/photos/new', {
+		templateUrl: 'partials/new.html',
+		controller: 'PhotoController'
+	});
+
+	$routeProvider.when('/photos/edit/:idPhoto', {
 		templateUrl: 'partials/new.html',
 		controller: 'PhotoController'
 	});
